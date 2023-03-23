@@ -28,23 +28,11 @@
     <spring-boot.version>2.7.2</spring-boot.version>
     <spring-cloud.version>2021.0.3</spring-cloud.version>
     <postgresql-connector.version>42.6.0</postgresql-connector.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        
+    <eshop-common.version>1.0-SNAPSHOT</eshop-common.version>
+    <spring-doc.version>1.6.15</spring-doc.version>
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-validation</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jpa</artifactId>
-    </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
@@ -71,6 +59,12 @@
 
   <dependencyManagement>
     <dependencies>
+      <!-- Eshop Common-->
+      <dependency>
+        <groupId>com.kevin.eshop</groupId>
+        <artifactId>eshop-common</artifactId>
+        <version>${eshop-common.version}</version>
+      </dependency>
       <!--Spring Cloud-->
       <dependency>
         <groupId>org.springframework.cloud</groupId>
@@ -85,6 +79,12 @@
         <artifactId>postgresql</artifactId>
         <version>${postgresql-connector.version}</version>
         <scope>runtime</scope>
+      </dependency>
+      <!-- Spring Doc -->
+      <dependency>
+        <groupId>org.springdoc</groupId>
+        <artifactId>springdoc-openapi-ui</artifactId>
+        <version>${spring-doc.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

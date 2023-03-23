@@ -2,7 +2,7 @@ version: '3'
 services:
   mysql:
     image: postgres:14.4-alpine
-    container_name: eshop
+    container_name: eshop-db
     restart: always
     environment:
       POSTGRES_USER: postgres
@@ -12,14 +12,14 @@ services:
       - 5432:5432
     volumes:
       - .db/postgresql:/var/lib/postgresql
-#redis:
-#  image: redis:7
-#  container_name: redis
-#  command: redis-server --appendonly yes
-#  volumes:
-#    - /mydata/redis/data:/data #数据文件挂载
-#  ports:
-#    - 6379:6379
+  redis:
+    image: redis:7
+    container_name: redis
+    command: redis-server --appendonly yes
+    volumes:
+      - .redis:/data #数据文件挂载
+    ports:
+      - 6379:6379
 #nginx:
 #  image: nginx:1.22
 #  container_name: nginx
