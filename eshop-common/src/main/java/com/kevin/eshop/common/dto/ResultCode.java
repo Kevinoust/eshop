@@ -2,9 +2,12 @@ package com.kevin.eshop.common.dto;
 
 public enum ResultCode implements IErrorCode {
     SUCCESS(200, "Success"),
-    NOT_AUTHENTICATED(401, "Authenticated"),
+    BAD_REQUEST(400, "Bad request"),
+    VALIDATION_FAILED(400, "Validation failed"),
+    USER_ALREADY_EXISTED(400, "User already existed!"),
+    NOT_AUTHENTICATED(401, "Not authenticated"),
+    AUTH_CODE_NOT_VALID(401, "Authentication code is not valid"),
     NO_PERMISSION(403, "Permission denied"),
-    VALIDATION_FAILED(404, "Validation failed"),
     FAILED(500, "Failed");
 
     private long code;

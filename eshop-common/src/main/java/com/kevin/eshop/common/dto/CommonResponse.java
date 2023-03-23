@@ -2,10 +2,12 @@ package com.kevin.eshop.common.dto;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@Data
 public class CommonResponse<T> {
     private long statusCode;
     private String message;
@@ -49,5 +51,13 @@ public class CommonResponse<T> {
 
     public static <T> CommonResponse<T> noPermission() {
         return failed(ResultCode.NO_PERMISSION);
+    }
+
+    public static <T> CommonResponse<T> badRequest() {
+        return failed(ResultCode.BAD_REQUEST);
+    }
+
+    public static <T> CommonResponse<T> badRequest(String message) {
+        return failed(ResultCode.BAD_REQUEST, message);
     }
 }

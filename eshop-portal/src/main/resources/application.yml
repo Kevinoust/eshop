@@ -10,3 +10,23 @@ spring:
     url: jdbc:postgresql://localhost:5432/eshop
     username: postgres
     password: postgres
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  redis:
+    host: localhost
+    database: 0
+    port: 6379
+    password:
+    timeout: 3000ms
+
+# custom redis key
+redis:
+  database: eshop
+  key:
+    authCode: 'ums:authCode'
+  expire:
+    authCode: 90  # 90s
+    common: 86400 # 24hrs
